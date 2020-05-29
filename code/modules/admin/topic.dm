@@ -499,7 +499,7 @@
 			return
 
 		var/dat = ""
-		var/header = "<head><title>Job-Ban Panel: [M.name]</title></head>"
+		var/header = {"<meta charset="UTF-8"><head><title>Job-Ban Panel: [M.name]</title></head>"}
 		var/body
 		var/jobs = ""
 
@@ -1122,7 +1122,7 @@
 
 		if(SSticker && SSticker.mode)
 			return alert(usr, "The game has already started.", null, null, null, null)
-		var/dat = {"<B>What mode do you wish to play?</B><HR>"}
+		var/dat = {"<meta charset="UTF-8"><B>What mode do you wish to play?</B><HR>"}
 		dat += {"<table><tr><td>Minplayers</td><td>Gamemode</td></tr>"}
 		for(var/mode in config.modes)
 			dat += {"<tr><td>\[[config.mode_required_players[mode]]\]</td><td><A href='?src=[UID()];c_mode2=[mode]'>[config.mode_names[mode]]</A></td></tr>"}
@@ -1138,7 +1138,7 @@
 			return alert(usr, "The game has already started.", null, null, null, null)
 		if(GLOB.master_mode != "secret")
 			return alert(usr, "The game mode has to be secret!", null, null, null, null)
-		var/dat = {"<B>What game mode do you want to force secret to be? Use this if you want to change the game mode, but want the players to believe it's secret. This will only work if the current game mode is secret.</B><HR>"}
+		var/dat = {"<meta charset="UTF-8"><B>What game mode do you want to force secret to be? Use this if you want to change the game mode, but want the players to believe it's secret. This will only work if the current game mode is secret.</B><HR>"}
 		dat += {"<table><tr><td>Minplayers</td><td>Gamemode</td></tr>"}
 		for(var/mode in config.modes)
 			dat += {"<tr><td>\[[config.mode_required_players[mode]]\]</td><td><A href='?src=[UID()];f_secret2=[mode]'>[config.mode_names[mode]]</A></td></tr>"}
@@ -2580,7 +2580,7 @@
 			log_game("SQL ERROR obtaining edits from memo table. Error : \[[err]\]\n")
 			return
 		if(query_memoedits.NextRow())
-			var/edit_log = query_memoedits.item[1]
+			var/edit_log = {"<meta charset="UTF-8">"} + query_memoedits.item[1]
 			usr << browse(edit_log,"window=memoeditlist")
 
 	else if(href_list["secretsfun"])
@@ -2994,17 +2994,17 @@
 		var/ok = 0
 		switch(href_list["secretsadmin"])
 			if("list_signalers")
-				var/dat = "<B>Showing last [length(GLOB.lastsignalers)] signalers.</B><HR>"
+				var/dat = {"<meta charset="UTF-8"><B>Showing last [length(GLOB.lastsignalers)] signalers.</B><HR>"}
 				for(var/sig in GLOB.lastsignalers)
 					dat += "[sig]<BR>"
 				usr << browse(dat, "window=lastsignalers;size=800x500")
 			if("list_lawchanges")
-				var/dat = "<B>Showing last [length(GLOB.lawchanges)] law changes.</B><HR>"
+				var/dat = {"<meta charset="UTF-8"><B>Showing last [length(GLOB.lawchanges)] law changes.</B><HR>"}
 				for(var/sig in GLOB.lawchanges)
 					dat += "[sig]<BR>"
 				usr << browse(dat, "window=lawchanges;size=800x500")
 			if("list_job_debug")
-				var/dat = "<B>Job Debug info.</B><HR>"
+				var/dat = {"<meta charset="UTF-8"><B>Job Debug info.</B><HR>"}
 				if(SSjobs)
 					for(var/line in SSjobs.job_debug)
 						dat += "[line]<BR>"
@@ -3022,7 +3022,7 @@
 					alert("The game mode is [SSticker.mode.name]")
 				else alert("For some reason there's a ticker, but not a game mode")
 			if("manifest")
-				var/dat = "<B>Showing Crew Manifest.</B><HR>"
+				var/dat = {"<meta charset="UTF-8"><B>Showing Crew Manifest.</B><HR>"}
 				dat += "<table cellspacing=5><tr><th>Name</th><th>Position</th></tr>"
 				for(var/thing in GLOB.human_list)
 					var/mob/living/carbon/human/H = thing
@@ -3033,7 +3033,7 @@
 			if("check_antagonist")
 				check_antagonists()
 			if("DNA")
-				var/dat = "<B>Showing DNA from blood.</B><HR>"
+				var/dat = {"<meta charset="UTF-8"><B>Showing DNA from blood.</B><HR>"}
 				dat += "<table cellspacing=5><tr><th>Name</th><th>DNA</th><th>Blood Type</th></tr>"
 				for(var/thing in GLOB.human_list)
 					var/mob/living/carbon/human/H = thing
@@ -3042,7 +3042,7 @@
 				dat += "</table>"
 				usr << browse(dat, "window=DNA;size=440x410")
 			if("fingerprints")
-				var/dat = "<B>Showing Fingerprints.</B><HR>"
+				var/dat = {"<meta charset="UTF-8"><B>Showing Fingerprints.</B><HR>"}
 				dat += "<table cellspacing=5><tr><th>Name</th><th>Fingerprints</th></tr>"
 				for(var/thing in GLOB.human_list)
 					var/mob/living/carbon/human/H = thing
@@ -3084,7 +3084,7 @@
 
 		switch(href_list["secretscoder"])
 			if("spawn_objects")
-				var/dat = "<B>Admin Log<HR></B>"
+				var/dat = {"<meta charset="UTF-8"><B>Admin Log<HR></B>"}
 				for(var/l in GLOB.admin_log)
 					dat += "<li>[l]</li>"
 				if(!GLOB.admin_log.len)
@@ -3364,7 +3364,7 @@
 		if(!check_rights(R_ADMIN))
 			return
 		var/text = html_decode(href_list["showdetails"])
-		usr << browse("<HTML><HEAD><TITLE>Details</TITLE></HEAD><BODY><TT>[replacetext(text, "\n", "<BR>")]</TT></BODY></HTML>",
+		usr << browse({"<HTML><meta charset="UTF-8"><HEAD><TITLE>Details</TITLE></HEAD><BODY><TT>[replacetext(text, "\n", "<BR>")]</TT></BODY></HTML>"},
 			"window=show_details;size=500x200")
 
 	// Library stuff
@@ -3384,7 +3384,7 @@
 				content = query_view_book.item[1]
 				title = html_encode(query_view_book.item[2])
 
-			var/dat = "<pre><code>"
+			var/dat = {"<meta charset="UTF-8"><pre><code>"}
 			dat += "[html_encode(html_to_pencode(content))]"
 			dat += "</code></pre>"
 

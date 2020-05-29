@@ -9,7 +9,7 @@
 	return
 
 /obj/effect/manifest/proc/manifest()
-	var/dat = "<B>Crew Manifest</B>:<BR>"
+	var/dat = {"<meta charset="UTF-8"><B>Crew Manifest</B>:<BR>"}
 	for(var/thing in GLOB.human_list)
 		var/mob/living/carbon/human/M = thing
 		dat += text("    <B>[]</B> -  []<BR>", M.name, M.get_assignment())
