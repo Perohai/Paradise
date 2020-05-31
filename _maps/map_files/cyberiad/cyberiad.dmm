@@ -5434,11 +5434,6 @@
 /obj/machinery/newscaster{
 	pixel_y = 30
 	},
-/obj/machinery/computer/security/telescreen/entertainment{
-	pixel_x = 32
-	},
-/obj/structure/closet/secure_closet/hos,
-/obj/item/reagent_containers/food/drinks/flask/barflask,
 /turf/simulated/floor/plasteel{
 	icon_state = "dark"
 	},
@@ -5989,13 +5984,8 @@
 /turf/simulated/floor/plasteel,
 /area/security/main)
 "alH" = (
-/obj/machinery/firealarm{
-	dir = 4;
-	pixel_x = 24
-	},
-/turf/simulated/floor/plasteel{
-	icon_state = "dark"
-	},
+/obj/structure/lattice,
+/turf/simulated/wall/r_wall,
 /area/security/hos)
 "alI" = (
 /obj/structure/grille,
@@ -55535,7 +55525,6 @@
 	},
 /area/medical/cryo)
 "bZw" = (
-/obj/machinery/computer/card/minor/cmo,
 /obj/machinery/camera{
 	c_tag = "Medbay Chief Medical Officer's Office";
 	dir = 4;
@@ -55551,6 +55540,7 @@
 	pixel_x = -32;
 	pixel_y = -8
 	},
+/obj/machinery/modular_computer/console/preset/command,
 /turf/simulated/floor/plasteel{
 	dir = 9;
 	icon_state = "darkblue"
@@ -58254,8 +58244,8 @@
 	name = "station intercom (General)";
 	pixel_x = 28
 	},
-/obj/structure/filingcabinet/chestdrawer,
 /obj/effect/decal/warning_stripes/southeast,
+/obj/machinery/modular_computer/console/preset/command,
 /turf/simulated/floor/plasteel{
 	icon_state = "white"
 	},
@@ -58800,12 +58790,11 @@
 	},
 /area/medical/cmo)
 "cem" = (
-/obj/structure/table/glass,
-/obj/item/clothing/glasses/hud/health,
 /obj/machinery/firealarm{
 	dir = 4;
 	pixel_x = 24
 	},
+/obj/machinery/computer/card/minor/cmo,
 /turf/simulated/floor/plasteel{
 	dir = 5;
 	icon_state = "darkblue"
@@ -59795,6 +59784,7 @@
 	pixel_y = 0
 	},
 /obj/item/paper_bin/nanotrasen,
+/obj/item/clothing/glasses/hud/health,
 /turf/simulated/floor/plasteel{
 	dir = 4;
 	icon_state = "darkblue"
@@ -62046,13 +62036,13 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
-/obj/item/twohanded/required/kirbyplants,
 /obj/machinery/power/apc{
 	dir = 8;
 	name = "west bump";
 	pixel_x = -24;
 	shock_proof = 0
 	},
+/obj/structure/filingcabinet/chestdrawer,
 /turf/simulated/floor/plasteel{
 	dir = 2;
 	icon_state = "cafeteria";
@@ -76359,6 +76349,7 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/machinery/photocopier,
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "neutralfull"
@@ -94589,7 +94580,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/obj/machinery/photocopier,
+/obj/machinery/modular_computer/console/preset/command,
 /turf/simulated/floor/plasteel{
 	dir = 8;
 	icon_state = "neutralfull"
@@ -94792,6 +94783,16 @@
 	icon_state = "neutral"
 	},
 /area/shuttle/escape)
+"dJG" = (
+/obj/machinery/computer/security/telescreen/entertainment{
+	pixel_x = 32
+	},
+/obj/structure/closet/secure_closet/hos,
+/obj/item/reagent_containers/food/drinks/flask/barflask,
+/turf/simulated/floor/plasteel{
+	icon_state = "dark"
+	},
+/area/security/hos)
 "dQC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -94889,6 +94890,16 @@
 	icon_state = "browncorner"
 	},
 /area/shuttle/escape)
+"fcT" = (
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = 24
+	},
+/obj/machinery/modular_computer/console/preset/command,
+/turf/simulated/floor/plasteel{
+	icon_state = "dark"
+	},
+/area/security/hos)
 "fAw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/machinery/tcomms/core/station,
@@ -132224,7 +132235,7 @@ aaa
 aaa
 aih
 akN
-alH
+aiY
 amu
 and
 aeW
@@ -132480,8 +132491,8 @@ aaa
 aaa
 aaa
 aih
-aih
-aih
+dJG
+fcT
 amt
 aeD
 aeV
@@ -132736,8 +132747,8 @@ aaa
 aaa
 aaa
 aaa
-aab
-aab
+alH
+alH
 aih
 aih
 aih
