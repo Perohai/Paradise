@@ -100,8 +100,8 @@
 	var/area/area = get_area(M)
 	answer["location"] = "[sanitize(area.name)||"Unknown"]"
 	answer["equipment"] = "[M.selected||"None"]"
-	if(istype(M, /obj/mecha/working/ripley))
-		var/obj/mecha/working/ripley/RM = M
+	if(istype(M, /obj/mecha/working))
+		var/obj/mecha/working/RM = M
 		answer["hascargo"] = 1
 		answer["cargo"] = RM.cargo.len/RM.cargo_capacity*100
 
@@ -120,8 +120,8 @@
 						<b>Pilot:</b> [M.occupant||"None"]
 						<b>Location:</b> [sanitize(A.name)||"Unknown"]
 						<b>Active equipment:</b> [M.selected||"None"]<br>"}
-	if(istype(M, /obj/mecha/working/ripley))
-		var/obj/mecha/working/ripley/RM = M
+	if(istype(M, /obj/mecha/working))
+		var/obj/mecha/working/RM = M
 		answer += "<b>Used cargo space:</b> [RM.cargo.len/RM.cargo_capacity*100]%<br>"
 
 	return answer
